@@ -1,0 +1,7 @@
+.spago/
+node_modules/
+output/
+.jj/
+.git/
+ffi/bin/sources/
+.release/

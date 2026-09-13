@@ -1,0 +1,32 @@
+purescript-native-encoding v0.0.1
+
+The PureScript/Go bindings and build recipe are MIT-licensed (LICENSE).
+They expose generic native byte, hash, file, process and executable-data
+primitives. Application encoding policy is not part of this package.
+
+ffi/bin/ffmpeg_darwin_arm64 is a separate FFmpeg executable with statically
+linked x264, distributed under GPL-2.0-or-later, NOT under the MIT license.
+FFmpeg: Copyright (c) 2000-2024 the FFmpeg developers.
+x264: Copyright (C) 2003-2023 x264 project; individual source files retain
+additional author and copyright notices in the complete source archives.
+
+FFmpeg and x264 are free software: you may redistribute and/or modify them
+under the GNU General Public License as published by the Free Software
+Foundation, either version 2 or (at your option) any later version.
+They are distributed WITHOUT ANY WARRANTY, including the implied warranties
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Full terms are in
+LICENSES/FFmpeg-GPL-2.0.txt and LICENSES/x264-GPL-2.0.txt.
+FFmpeg's upstream licensing explanation and LGPL terms are also preserved in
+LICENSES/FFmpeg-NOTICE.txt and LICENSES/FFmpeg-LGPL-2.1.txt.
+
+Complete corresponding source, including upstream notices, interfaces and
+compilation/installation scripts, is provided alongside the binary at:
+https://github.com/i-am-the-slime/purescript-native-encoding/releases/tag/v0.0.1
+See SOURCE.txt for immutable revisions, archive hashes and build instructions.
+Redistributors must preserve the applicable notices and licenses and provide
+corresponding source as required by the GPL; merely retaining this URL does
+not replace their own obligations. No separate written-source offer is used.
+
+Only darwin-arm64 has a bundled executable. The other four platform build
+recipes are retained in ffi/bin/build.sh; their binaries are not supplied.
+No executable is downloaded by the runtime.

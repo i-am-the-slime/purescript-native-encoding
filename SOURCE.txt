@@ -1,0 +1,60 @@
+purescript-native-encoding v0.0.1: embedded FFmpeg corresponding source
+
+Release and equivalent binary/source access:
+https://github.com/i-am-the-slime/purescript-native-encoding/releases/tag/v0.0.1
+Source bundle: ffmpeg-corresponding-source-v0.0.1.tar.gz
+Binary asset: ffmpeg_darwin_arm64
+License bundle: licenses-v0.0.1.tar.gz
+Checksums: SHA256SUMS
+
+FFmpeg upstream: https://github.com/FFmpeg/FFmpeg
+Release: n7.1
+Commit: b08d7969c550a804a59511c7b83f2dd8cc0499b8
+Source archive: ffmpeg-b08d7969c550a804a59511c7b83f2dd8cc0499b8.tar.gz
+Archive URL: https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/b08d7969c550a804a59511c7b83f2dd8cc0499b8
+SHA256: 02fa6d9827da3b6786e4df821218cc036db2b4481e7f48267c2dcda695633afc
+
+x264 upstream: https://code.videolan.org/videolan/x264
+Public source mirror used: https://github.com/mirror/x264
+Commit: 31e19f92f00c7003fa115047ce50978bc98c3a0d
+(stable branch resolved to this immutable commit during release preparation)
+Source archive: x264-31e19f92f00c7003fa115047ce50978bc98c3a0d.tar.gz
+Archive URL: https://codeload.github.com/mirror/x264/tar.gz/31e19f92f00c7003fa115047ce50978bc98c3a0d
+SHA256: d053c9d86988d6bc78237ca5205865c5ddf99c98ef4cd9927eec8f6d388f6dd9
+
+Both archives contain complete, unmodified upstream source and its original
+licenses/notices. No upstream patches were applied. The source bundle also
+contains the exact build recipe, distribution notices and toolchain details.
+The previous unpublished binary's exact x264 revision could not be verified;
+it was replaced with a fresh build from the revisions above. No source claim
+is made for that old binary.
+
+Embedded binary SHA256:
+94809214c4360eeb78a38689a94b83b2c4658c6210b4891970c1ff33cc1b78ae
+Built natively on Darwin arm64 with Apple clang 21.0.0 (clang-2100.1.1.101),
+macOS SDK 26.5; this artifact's Mach-O minimum macOS version is 26.0.
+FFmpeg and x264 are statically linked. Dynamic dependencies are only macOS
+system libraries/frameworks (libSystem, libz, VideoToolbox, CoreFoundation,
+CoreMedia, CoreVideo, CoreServices), not Homebrew libraries.
+
+Rebuilding the Darwin artifact from release materials:
+1. Extract ffmpeg-corresponding-source-v0.0.1.tar.gz and enter its directory.
+2. Install Xcode command-line tools, make, pkg-config and nasm on Darwin arm64.
+3. Run: SOURCE_DIR="$PWD/sources" bash ffi/bin/build.sh darwin-arm64
+   The archive hashes are checked before extraction; no source download occurs
+   when the supplied archives are present. Output: ffi/bin/ffmpeg_darwin_arm64.
+4. Copy that executable to the same path in a checkout before building Go.
+
+The script also accepts darwin-amd64 (native Intel Mac), linux-amd64 and
+linux-arm64 (Docker ubuntu:22.04), and windows-amd64 (Docker
+ dockcross/windows-static-x64). Those targets are source recipes only; no
+binary or completed cross-platform build is claimed. Docker images and system
+toolchains are not pinned; exact source/configuration is reproducible, but
+byte-for-byte output across toolchains, timestamps and temporary paths is not
+claimed. The script preserves the existing codec, filter, demuxer, muxer and
+protocol flags. Only unused X11/XCB detection is disabled to avoid linking
+unrelated Homebrew libraries. Application policy and runtime are unchanged.
+
+Consumers of the native PureScript modules use a native backend and the Go
+module github.com/i-am-the-slime/purescript-native-encoding at v0.0.1. This is
+a GitHub/Go source release, not a portable PureScript registry publication.

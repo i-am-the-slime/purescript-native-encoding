@@ -1,0 +1,12 @@
+package:
+  name: native-encoding
+  dependencies:
+    - effect
+    - native-graphics
+    - prelude
+  publish:
+    version: 0.0.1
+    license: MIT
+    location:
+      githubOwner: i-am-the-slime
+      githubRepo: purescript-native-encoding
