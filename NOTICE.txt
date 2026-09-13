@@ -1,4 +1,4 @@
-purescript-native-encoding v0.0.1
+purescript-native-encoding v0.0.2
 
 The PureScript/Go bindings and build recipe are MIT-licensed (LICENSE).
 They expose generic native byte, hash, file, process and executable-data
@@ -21,7 +21,7 @@ LICENSES/FFmpeg-NOTICE.txt and LICENSES/FFmpeg-LGPL-2.1.txt.
 
 Complete corresponding source, including upstream notices, interfaces and
 compilation/installation scripts, is provided alongside the binary at:
-https://github.com/i-am-the-slime/purescript-native-encoding/releases/tag/v0.0.1
+https://github.com/i-am-the-slime/purescript-native-encoding/releases/tag/v0.0.2
 See SOURCE.txt for immutable revisions, archive hashes and build instructions.
 Redistributors must preserve the applicable notices and licenses and provide
 corresponding source as required by the GPL; merely retaining this URL does

@@ -26,7 +26,7 @@ set -euo pipefail
 DIR="$(cd "$(dirname "$0")" && pwd)"
 TARGET="${1:-darwin-arm64}"
 
-# Complete, unmodified source archives are also attached to the v0.0.1 release.
+# Complete, unmodified source archives are also attached to the v0.0.2 release.
 # Set SOURCE_DIR to a directory containing those archives for an offline build.
 FFMPEG_REV=b08d7969c550a804a59511c7b83f2dd8cc0499b8 # n7.1
 X264_REV=31e19f92f00c7003fa115047ce50978bc98c3a0d # stable at release preparation
@@ -77,6 +77,8 @@ FFMPEG_CONFIGURE_ARGS=(
 )
 
 build_native_darwin () {
+  # Pin both x264 and FFmpeg below newer Xcode's host-derived deployment target.
+  export MACOSX_DEPLOYMENT_TARGET=14.0
   WORKDIR="$(mktemp -d -t ffmpeg-build.XXXXXX)"
   trap "rm -rf '$WORKDIR'" EXIT
 

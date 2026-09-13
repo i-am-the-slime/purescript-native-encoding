@@ -1,10 +1,10 @@
-purescript-native-encoding v0.0.1: embedded FFmpeg corresponding source
+purescript-native-encoding v0.0.2: embedded FFmpeg corresponding source
 
 Release and equivalent binary/source access:
-https://github.com/i-am-the-slime/purescript-native-encoding/releases/tag/v0.0.1
-Source bundle: ffmpeg-corresponding-source-v0.0.1.tar.gz
+https://github.com/i-am-the-slime/purescript-native-encoding/releases/tag/v0.0.2
+Source bundle: ffmpeg-corresponding-source-v0.0.2.tar.gz
 Binary asset: ffmpeg_darwin_arm64
-License bundle: licenses-v0.0.1.tar.gz
+License bundle: licenses-v0.0.2.tar.gz
 Checksums: SHA256SUMS
 
 FFmpeg upstream: https://github.com/FFmpeg/FFmpeg
@@ -30,15 +30,17 @@ it was replaced with a fresh build from the revisions above. No source claim
 is made for that old binary.
 
 Embedded binary SHA256:
-94809214c4360eeb78a38689a94b83b2c4658c6210b4891970c1ff33cc1b78ae
+997be179863cce3f7d6e652715e68be4dd4f77404d380efce09efcfb87f5836f
 Built natively on Darwin arm64 with Apple clang 21.0.0 (clang-2100.1.1.101),
-macOS SDK 26.5; this artifact's Mach-O minimum macOS version is 26.0.
+macOS SDK 26.5. The recipe explicitly sets MACOSX_DEPLOYMENT_TARGET=14.0 for
+both x264 and FFmpeg; this artifact's Mach-O minimum macOS version is 14.0.
+This corrects v0.0.1's host-derived macOS 26.0 minimum without changing codecs.
 FFmpeg and x264 are statically linked. Dynamic dependencies are only macOS
 system libraries/frameworks (libSystem, libz, VideoToolbox, CoreFoundation,
 CoreMedia, CoreVideo, CoreServices), not Homebrew libraries.
 
 Rebuilding the Darwin artifact from release materials:
-1. Extract ffmpeg-corresponding-source-v0.0.1.tar.gz and enter its directory.
+1. Extract ffmpeg-corresponding-source-v0.0.2.tar.gz and enter its directory.
 2. Install Xcode command-line tools, make, pkg-config and nasm on Darwin arm64.
 3. Run: SOURCE_DIR="$PWD/sources" bash ffi/bin/build.sh darwin-arm64
    The archive hashes are checked before extraction; no source download occurs
@@ -56,5 +58,5 @@ protocol flags. Only unused X11/XCB detection is disabled to avoid linking
 unrelated Homebrew libraries. Application policy and runtime are unchanged.
 
 Consumers of the native PureScript modules use a native backend and the Go
-module github.com/i-am-the-slime/purescript-native-encoding at v0.0.1. This is
+module github.com/i-am-the-slime/purescript-native-encoding at v0.0.2. This is
 a GitHub/Go source release, not a portable PureScript registry publication.
